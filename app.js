@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const productsRoutes = require("./routes/products");
 const reviewsRoutes = require("./routes/reviews");
@@ -9,6 +10,13 @@ const reviewsRoutes = require("./routes/reviews");
 const PORT = process.env.PORT || 3000;
 const dbURI =
     "mongodb+srv://sishir:test1234@moneyyapp.edb33n1.mongodb.net/api?retryWrites=true&w=majority";
+
+// ! allowing everyone
+app.use(
+    cors({
+        origin: "*",
+    })
+);
 
 // Aschronous task
 mongoose
